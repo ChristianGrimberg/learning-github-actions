@@ -18,13 +18,13 @@ jobs:
           echo $INIT
           ls -ltr
     - name: Check my Personal web page
+      env:
+        CHECK_WEB_PAGE: See my Personal web page notes
       uses: actions/checkout@v2
       with:
         repository: ChristianGrimberg/ChristianGrimberg.github.io # Repository name with owner
         ref: master                                               # The branch, tag or SHA to checkout
         path: ./ChristianGrimberg                                 # Relative path under $GITHUB_WORKSPACE
-      env:
-        CHECK_WEB_PAGE: See my Personal web page notes
     - name: List checked project files and see web page notes
       run: |
           ls -ltr ./ChristianGrimberg/

@@ -15,12 +15,14 @@ jobs:
       run: |
           ls -ltr
           git --version
-    - name: Check out Apache Tomcat
+    - name: Check my Personal web page
       uses: actions/checkout@v2
       with:
-        repository: apache/tomcat # Repository name with owner
-        ref: master               # The branch, tag or SHA to checkout
-        path: ./tomcat            # Relative path under $GITHUB_WORKSPACE
+        repository: ChristianGrimberg/ChristianGrimberg.github.io # Repository name with owner
+        ref: master                                               # The branch, tag or SHA to checkout
+        path: ./ChristianGrimberg                                 # Relative path under $GITHUB_WORKSPACE
     - name: List project files to see Tomcat files
       run: |
-          ls -ltr ./tomcat/
+          ls -ltr ./ChristianGrimberg/
+          echo "See web page notes!"
+          cat ./ChristianGrimberg/index.md

@@ -21,3 +21,6 @@ jobs:
         repository: apache/tomcat # Repository name with owner
         ref: master               # The branch, tag or SHA to checkout
         path: ./tomcat            # Relative path under $GITHUB_WORKSPACE
+    - name: List project files to see Tomcat files
+      run: |
+          ls -ltr

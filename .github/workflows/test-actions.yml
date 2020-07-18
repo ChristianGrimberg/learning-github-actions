@@ -24,9 +24,9 @@ jobs:
         ref: master                                               # The branch, tag or SHA to checkout
         path: ./ChristianGrimberg                                 # Relative path under $GITHUB_WORKSPACE
       env:
-        CHECK-WEB-PAGE: See my Personal web page notes
+        CHECK_WEB_PAGE: See my Personal web page notes
     - name: List checked project files and see web page notes
       run: |
           ls -ltr ./ChristianGrimberg/
-          echo $CHECK-WEB-PAGE
+          echo $CHECK_WEB_PAGE
           cat ./ChristianGrimberg/index.md

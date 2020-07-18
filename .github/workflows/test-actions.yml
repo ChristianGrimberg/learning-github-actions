@@ -23,4 +23,4 @@ jobs:
         path: ./tomcat            # Relative path under $GITHUB_WORKSPACE
     - name: List project files to see Tomcat files
       run: |
-          ls -ltr
+          ls -ltr ./tomcat/

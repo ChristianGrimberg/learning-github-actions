@@ -10,23 +10,24 @@ jobs:
       INIT: List project files
       CHECK_WEB_PAGE: See my Personal web page notes
     
-      steps:                                                       # Steps to run 
-        - name: Check out this repo
-        uses: actions/checkout@v2
-        - name: List project files
-        run: |
-          echo $INIT
-          ls -ltr
-        
-        - name: Check my Personal web page
-        uses: actions/checkout@v2
-        with:
-          repository: ChristianGrimberg/ChristianGrimberg.github.io # Repository name with owner
-          ref: master                                               # The branch, tag or SHA to checkout
-          path: ./ChristianGrimberg                                 # Relative path under $GITHUB_WORKSPACE
-        
-        - name: List checked project files and see web page notes
-        run: |
-          ls -ltr ./ChristianGrimberg/
-          echo $CHECK_WEB_PAGE
-          cat ./ChristianGrimberg/index.md
+    steps:                                                       # Steps to run 
+      - name: Check out this repo
+      uses: actions/checkout@v2
+
+      - name: List project files
+      run: |
+        echo $INIT
+        ls -ltr
+      
+      - name: Check my Personal web page
+      uses: actions/checkout@v2
+      with:
+        repository: ChristianGrimberg/ChristianGrimberg.github.io # Repository name with owner
+        ref: master                                               # The branch, tag or SHA to checkout
+        path: ./ChristianGrimberg                                 # Relative path under $GITHUB_WORKSPACE
+      
+      - name: List checked project files and see web page notes
+      run: |
+        ls -ltr ./ChristianGrimberg/
+        echo $CHECK_WEB_PAGE
+        cat ./ChristianGrimberg/index.md

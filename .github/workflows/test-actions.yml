@@ -13,7 +13,7 @@ jobs:
 
     - name: List project files
       env:
-          INIT: "List project files"
+          INIT: List project files
       run: |
           echo $INIT
           ls -ltr
@@ -23,8 +23,10 @@ jobs:
         repository: ChristianGrimberg/ChristianGrimberg.github.io # Repository name with owner
         ref: master                                               # The branch, tag or SHA to checkout
         path: ./ChristianGrimberg                                 # Relative path under $GITHUB_WORKSPACE
+      env:
+        CHECK-WEB-PAGE: See my Personal web page notes
     - name: List checked project files and see web page notes
       run: |
           ls -ltr ./ChristianGrimberg/
-          echo "See web page notes!"
+          echo $CHECK-WEB-PAGE
           cat ./ChristianGrimberg/index.md

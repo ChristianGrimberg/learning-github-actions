@@ -13,7 +13,7 @@ jobs:
 
     - name: List project files
       env:
-          INIT = "List project files"
+          INIT: "List project files"
       run: |
           echo $INIT
           ls -ltr

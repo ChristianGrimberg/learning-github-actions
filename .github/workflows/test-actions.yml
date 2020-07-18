@@ -12,7 +12,10 @@ jobs:
       uses: actions/checkout@v2
 
     - name: List project files
+      env:
+          INIT = "List project files"
       run: |
+          echo $INIT
           ls -ltr
     - name: Check my Personal web page
       uses: actions/checkout@v2
@@ -23,5 +26,5 @@ jobs:
     - name: List checked project files and see web page notes
       run: |
           ls -ltr ./ChristianGrimberg/
-          echo "See web page notes!\n"
+          echo "See web page notes!"
           cat ./ChristianGrimberg/index.md

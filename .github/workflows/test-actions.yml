@@ -11,18 +11,17 @@ jobs:
     - name: Check out this repo
       uses: actions/checkout@v2
 
-    - name: List project files and Git version
+    - name: List project files
       run: |
           ls -ltr
-          git --version
     - name: Check my Personal web page
       uses: actions/checkout@v2
       with:
         repository: ChristianGrimberg/ChristianGrimberg.github.io # Repository name with owner
         ref: master                                               # The branch, tag or SHA to checkout
         path: ./ChristianGrimberg                                 # Relative path under $GITHUB_WORKSPACE
-    - name: List project files to see Tomcat files
+    - name: List checked project files and see web page notes
       run: |
           ls -ltr ./ChristianGrimberg/
-          echo "See web page notes!"
+          echo "See web page notes!\n"
           cat ./ChristianGrimberg/index.md

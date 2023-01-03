@@ -17,7 +17,7 @@ jobs:
 
       - name: Compress downloaded repo
         run: |
-          tar -czvf binary.tar.gz .
+          tar -czvf binary.tar.gz *.html
 
       - name: Upload compressed file
         uses: actions/upload-artifact@v3

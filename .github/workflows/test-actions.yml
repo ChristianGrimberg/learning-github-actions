@@ -21,7 +21,8 @@ jobs:
 
   clone:
     runs-on: ubuntu-latest                                          # Container image
-
+    
+    steps:
       - name: Check my Personal web page
         uses: actions/checkout@v2
         with:
@@ -35,7 +36,8 @@ jobs:
 
   artifact:
     runs-on: ubuntu-latest                                          # Container image
-
+    
+    steps:
       - name: Upload compressed file
         uses: actions/upload-artifact@v3
         with:
@@ -47,9 +49,14 @@ jobs:
 
     env:                                                            # Personal environment variables
       ARTIFACT: Shared data between jobs
-
-      - name: List checked project files and see web page notes
+      
+    steps:                                                          # Steps to run
+      - name: Download the artifact
         uses: actions/download-artifact@v3
+        with:
+          path: .
+      
+      - name: List content of artifact
         run: |
           echo $ARTIFACT
           tar -ztvf ./binary.tar.gz

@@ -51,9 +51,9 @@ jobs:
       - name: Download the artifact
         uses: actions/download-artifact@v3
         with:
-          path: .
+          path: ./downloads
 
       - name: List content of artifact
         run: |
           echo $ARTIFACT
-          tar -ztvf ./binary.tar.gz
+          ls -ltr ./downloads

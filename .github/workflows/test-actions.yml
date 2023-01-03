@@ -35,11 +35,6 @@ jobs:
         run: |
           tar -czvf binary.tar.gz ./ChristianGrimberg/*.html
 
-  artifact:
-    runs-on: ubuntu-latest                                          # Container image
-    needs: clone
-
-    steps:
       - name: Upload compressed file
         uses: actions/upload-artifact@v3
         with:
@@ -47,7 +42,7 @@ jobs:
 
   contents:
     runs-on: ubuntu-latest                                          # Container image
-    needs: artifact
+    needs: clone
 
     env:                                                            # Personal environment variables
       ARTIFACT: Shared data between jobs

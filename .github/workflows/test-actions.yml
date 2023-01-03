@@ -3,13 +3,12 @@ name: Test GitHub Actions
 on: [push]                                                          # Workflow action
 
 jobs:
-  learning:
+
+  list:
     runs-on: ubuntu-latest                                          # Container image
 
     env:                                                            # Personal environment variables
       INIT: List project files
-      CHECK_WEB_PAGE: See my Personal web page notes
-      ARTIFACT: Share data between jobs
 
     steps:                                                          # Steps to run 
       - name: Check out this repo
@@ -19,6 +18,9 @@ jobs:
         run: |
           echo $INIT
           ls -ltr
+
+  clone:
+    runs-on: ubuntu-latest                                          # Container image
 
       - name: Check my Personal web page
         uses: actions/checkout@v2
@@ -31,13 +33,23 @@ jobs:
         run: |
           tar -czvf binary.tar.gz ./ChristianGrimberg/*.html
 
+  artifact:
+    runs-on: ubuntu-latest                                          # Container image
+
       - name: Upload compressed file
         uses: actions/upload-artifact@v3
         with:
           path: ./binary.tar.gz
 
+  contents:
+    runs-on: ubuntu-latest                                          # Container image
+    needs: artifact
+
+    env:                                                            # Personal environment variables
+      ARTIFACT: Shared data between jobs
+
       - name: List checked project files and see web page notes
+        uses: actions/download-artifact@v3
         run: |
-          ls -ltr ./ChristianGrimberg/
-          echo $CHECK_WEB_PAGE
-          cat ./ChristianGrimberg/index.md
+          echo $ARTIFACT
+          tar -ztvf ./binary.tar.gz

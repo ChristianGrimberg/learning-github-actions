@@ -1,0 +1,16 @@
+{
+    // Environment style
+    "workbench.colorTheme": "Panda Syntax",
+    "editor.renderWhitespace": "boundary",
+    "editor.fontSize": 12,
+    // Git behaviour
+    "git.autofetch": true,
+    "git.autofetchPeriod": 60,
+    "git.confirmSync": false,
+    "git.enableCommitSigning": true,
+    // Terminal behaviour
+    "terminal.integrated.defaultProfile.windows": "Windows PowerShell",
+    "terminal.integrated.defaultProfile.linux": "pwsh",
+    "terminal.integrated.defaultProfile.osx": "PowerShell",
+    "terminal.integrated.fontSize": 12
+}

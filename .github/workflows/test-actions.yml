@@ -15,15 +15,6 @@ jobs:
       - name: Check out this repo
         uses: actions/checkout@v2
 
-      - name: Compress downloaded repo
-        run: |
-          tar -czvf binary.tar.gz *.html
-
-      - name: Upload compressed file
-        uses: actions/upload-artifact@v3
-        with:
-          path: ./binary.tar.gz
-
       - name: List project files
         run: |
           echo $INIT
@@ -35,6 +26,15 @@ jobs:
           repository: ChristianGrimberg/ChristianGrimberg.github.io   # Repository name with owner
           ref: master                                                 # The branch, tag or SHA to checkout
           path: ./ChristianGrimberg                                   # Relative path under $GITHUB_WORKSPACE
+
+      - name: Compress downloaded repo
+        run: |
+          tar -czvf binary.tar.gz ./ChristianGrimberg/*.html
+
+      - name: Upload compressed file
+        uses: actions/upload-artifact@v3
+        with:
+          path: ./binary.tar.gz
 
       - name: List checked project files and see web page notes
         run: |
